@@ -1,0 +1,2 @@
+# vizprog
+beadando vizprog feladat

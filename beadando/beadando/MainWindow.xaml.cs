@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace beadando
+namespace Vaorsi
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +23,18 @@ namespace beadando
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void keszit_Click(object sender, RoutedEventArgs e)
+        {
+            Leny Jatekos = new Leny(100, 100, 10, 5, 10);
+            Jatekos.nev = tnev.Text;
+            nevcimke.Content = Jatekos.nev;
+            eletcimke.Content = Jatekos.Aktelet;
+            Maxecimke.Content = Jatekos.Maxelet;
+            tamcimke.Content = Jatekos.Tamadas;
+            vedcimke.Content = Jatekos.Vededs;
+            gyorscimke.Content = Jatekos.Gyorsasag;
         }
     }
 }

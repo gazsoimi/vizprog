@@ -12,20 +12,29 @@ namespace Orsimu
     using System;
     using System.Collections.Generic;
     
-    public partial class Fegyver
+    public partial class Karakter
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Fegyver()
+        public Karakter()
         {
-            this.i_fegyver = new HashSet<i_fegyver>();
+            this.invertory = new HashSet<invertory>();
         }
     
-        public int Id { get; set; }
-        public string nev { get; set; }
-        public int min_seb { get; set; }
-        public int max_seb { get; set; }
+        public int kar_Id { get; set; }
+        public string kar_nev { get; set; }
+        public Nullable<int> max_elet { get; set; }
+        public int akt_elet { get; set; }
+        public int tamadas { get; set; }
+        public int vedes { get; set; }
+        public int gyorsasag { get; set; }
+        public int felhaszn_id { get; set; }
+        public int oraber { get; set; }
+        public int penz { get; set; }
+        public int talonpenz { get; set; }
+        public Nullable<int> akt_fegyver { get; set; }
     
+        public virtual Felhaszn Felhaszn { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<i_fegyver> i_fegyver { get; set; }
+        public virtual ICollection<invertory> invertory { get; set; }
     }
 }

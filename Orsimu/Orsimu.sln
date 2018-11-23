@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28306.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orsimu", "Orsimu\Orsimu.csproj", "{4040B859-1958-4CDC-849C-DD9FA65D45D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4040B859-1958-4CDC-849C-DD9FA65D45D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4040B859-1958-4CDC-849C-DD9FA65D45D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4040B859-1958-4CDC-849C-DD9FA65D45D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4040B859-1958-4CDC-849C-DD9FA65D45D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7724CCB3-702C-40F5-930E-11100E8B49DA}
+	EndGlobalSection
+EndGlobal

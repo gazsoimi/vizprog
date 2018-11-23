@@ -12,14 +12,13 @@ namespace Orsimu
     using System;
     using System.Collections.Generic;
     
-    public partial class Leny
+    public partial class i_fegyver
     {
         public int Id { get; set; }
-        public string nev { get; set; }
-        public int max_elet { get; set; }
-        public int akt_elet { get; set; }
-        public int tamadas { get; set; }
-        public int vedes { get; set; }
-        public int gyorsasag { get; set; }
+        public int invertory_Id { get; set; }
+        public int fegyver_id { get; set; }
+    
+        public virtual Fegyver Fegyver { get; set; }
+        public virtual invertory invertory { get; set; }
     }
 }

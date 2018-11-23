@@ -13,36 +13,59 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Vaorsi
+namespace Orsimu
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        Player lajos = new Player();
+        Fegyver kard = new Fegyver(1,10,2,"kard");
+        Fegyver fejsze = new Fegyver(2, 20, 30,"fejsze");
+        Leny enemy = new Leny();
+        
+
+
         public MainWindow()
         {
             InitializeComponent();
+            lajos.Nev = "lajos";
+            pnev.Content = lajos.Nev;
+            
+            lajos.fegyvere = kard;
+            lajos.fegyvere = fejsze;
+            pseb.Content = lajos.fegyvere.Maxseb;
+            lajos.Aktelet = 100;
+            lajos.Maxelet = 100;
+            paktelet.Content = lajos.Aktelet;
+            pmelet.Content = lajos.Maxelet;
+
         }
 
-        private void keszit_Click(object sender, RoutedEventArgs e)
+        private void Jarorb_Click(object sender, RoutedEventArgs e)
         {
-            Fegyver kard = new Fegyver();
-            kard.Nev = "kard";
-            kard.Minseb = 10;
-            kard.Maxseb = 20;
-            Leny Jatekos = new Leny(100, 100, 10, 5, 10);
-            Jatekos.fegyver = kard;
-            Jatekos.nev = tnev.Text;
-            nevcimke.Content = Jatekos.nev;
-            eletcimke.Content = Jatekos.Aktelet;
-            Maxecimke.Content = Jatekos.Maxelet;
-            tamcimke.Content = Jatekos.Tamadas;
-            vedcimke.Content = Jatekos.Vededs;
-            gyorscimke.Content = Jatekos.Gyorsasag;
-            fegyvercimke.Content = Jatekos.fegyver.Nev+Jatekos.fegyver.Minseb;
-            tnev.Visibility = Visibility.Hidden;
-            keszit.Visibility = Visibility.Hidden;
+            //Leny enemy = new Leny();
+            enemy.Nev = "voálá";
+            enemy.Aktelet = 1000;
+            enemy.Maxelet = 100;
+            enemy.Vedes = 10;
+            enemy.Tamad = 5;
+            Enev.Content = enemy.Nev;
+            Enev.Content = enemy.Nev;
+            Eaktelet.Content = enemy.Aktelet;
+            Eelet.Content = enemy.Maxelet;
+
+            Jarorb.Visibility = Visibility.Hidden;
+            Harcg.Visibility = Visibility.Visible;
+        }
+
+        private void Harcg_Click(object sender, RoutedEventArgs e)
+        {
+            enemy.Aktelet=enemy.Aktelet - lajos.fegyvere.Maxseb;
+            Eaktelet.Content = enemy.Aktelet;
+            lajos.Aktelet = lajos.Aktelet - enemy.Tamad;
+            paktelet.Content = lajos.Aktelet;
         }
     }
 }

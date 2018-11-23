@@ -13,28 +13,36 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Orsimu
+namespace Vaorsi
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        Player lajos = new Player();
-        Fegyver kard = new Fegyver(1,10,2,"kard");
-        Fegyver fejsze = new Fegyver(2, 20, 30,"fejsze");
-        
-        
         public MainWindow()
         {
             InitializeComponent();
-            lajos.Nev = "lajos";
-            pnev.Content = lajos.Nev;
-            lajos.fegyvere = kard;
-            lajos.fegyvere = fejsze;
-            pseb.Content = lajos.fegyvere.Maxseb;
+        }
 
-            
+        private void keszit_Click(object sender, RoutedEventArgs e)
+        {
+            Fegyver kard = new Fegyver();
+            kard.Nev = "kard";
+            kard.Minseb = 10;
+            kard.Maxseb = 20;
+            Leny Jatekos = new Leny(100, 100, 10, 5, 10);
+            Jatekos.fegyver = kard;
+            Jatekos.nev = tnev.Text;
+            nevcimke.Content = Jatekos.nev;
+            eletcimke.Content = Jatekos.Aktelet;
+            Maxecimke.Content = Jatekos.Maxelet;
+            tamcimke.Content = Jatekos.Tamadas;
+            vedcimke.Content = Jatekos.Vededs;
+            gyorscimke.Content = Jatekos.Gyorsasag;
+            fegyvercimke.Content = Jatekos.fegyver.Nev+Jatekos.fegyver.Minseb;
+            tnev.Visibility = Visibility.Hidden;
+            keszit.Visibility = Visibility.Hidden;
         }
     }
 }

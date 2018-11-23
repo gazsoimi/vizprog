@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Orsimu.Properties
+namespace Vaorsi.Properties
 {
 
 

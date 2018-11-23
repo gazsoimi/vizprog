@@ -1,7 +1,7 @@
-﻿<Application x:Class="Orsimu.App"
+﻿<Application x:Class="Vaorsi.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Orsimu"
+             xmlns:local="clr-namespace:Vaorsi"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

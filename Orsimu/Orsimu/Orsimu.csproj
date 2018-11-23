@@ -44,8 +44,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -68,43 +66,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Adatbazis.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Adatbazis.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Adatbazis.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Adatbazis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Adatbazis.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Adatbazis.edmx</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Fegyver.cs">
-      <DependentUpon>Adatbazis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Felhaszn.cs">
-      <DependentUpon>Adatbazis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="invertory.cs">
-      <DependentUpon>Adatbazis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="i_fegyver.cs">
-      <DependentUpon>Adatbazis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Karakter.cs">
-      <DependentUpon>Adatbazis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Leny.cs">
-      <DependentUpon>Adatbazis.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Fegyver.cs" />
+    <Compile Include="Leny.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -112,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -129,13 +97,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Adatbazis.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Adatbazis.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Adatbazis.edmx.diagram">
-      <DependentUpon>Adatbazis.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -144,21 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Adatbazis.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Adatbazis.Context.cs</LastGenOutput>
-      <DependentUpon>Adatbazis.edmx</DependentUpon>
-    </Content>
-    <Content Include="Adatbazis.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Adatbazis.edmx</DependentUpon>
-      <LastGenOutput>Adatbazis.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

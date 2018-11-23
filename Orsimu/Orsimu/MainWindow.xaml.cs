@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace Orsimu
 {
@@ -20,17 +21,28 @@ namespace Orsimu
     /// </summary>
     public partial class MainWindow : Window
     {
-        Player lajos = new Player();
-        Fegyver kard = new Fegyver(1,10,2,"kard");
-        Fegyver fejsze = new Fegyver(2, 20, 30,"fejsze");
-        Leny enemy = new Leny();
-        
+        Player jatekos = new Player();
+        // Fegyver kard = new Fegyver(1,10,2,"kard");
+
+        // Fegyver fejsze = new Fegyver(2, 7, 30,"fejsze");
+         Leny enemy = new Leny();
+       Fegyver kard = new Fegyver() { Nev = "kard", Id = 1, Minseb = 1, Maxseb = 20, };
 
 
         public MainWindow()
         {
+            
             InitializeComponent();
-            lajos.Nev = "lajos";
+            using (var db = new PlayerContext()) 
+            {
+                 var jatekos = new Player() { Nev="lajos",Id=1,Maxelet=100,};
+                var kard = new Fegyver() { Nev = "kard", Id = 1, Minseb = 1, Maxseb = 20, };
+                var kobold = new Leny() {Nev="kobold",Id=1,Maxelet=30 };
+               // jatekos.Fegyverje.Add(kard);
+
+               // jatekos.Fegyverje.add(jatekos);
+            }
+            /*lajos.Nev = "lajos";
             pnev.Content = lajos.Nev;
             
             lajos.fegyvere = kard;
@@ -39,7 +51,8 @@ namespace Orsimu
             lajos.Aktelet = 100;
             lajos.Maxelet = 100;
             paktelet.Content = lajos.Aktelet;
-            pmelet.Content = lajos.Maxelet;
+            pmelet.Content = lajos.Maxelet;*/
+
 
         }
 
@@ -47,7 +60,7 @@ namespace Orsimu
         {
             //Leny enemy = new Leny();
             enemy.Nev = "voálá";
-            enemy.Aktelet = 1000;
+            enemy.Aktelet = 100;
             enemy.Maxelet = 100;
             enemy.Vedes = 10;
             enemy.Tamad = 5;
@@ -58,14 +71,30 @@ namespace Orsimu
 
             Jarorb.Visibility = Visibility.Hidden;
             Harcg.Visibility = Visibility.Visible;
+            futasg.Visibility = Visibility.Visible;
         }
 
         private void Harcg_Click(object sender, RoutedEventArgs e)
         {
-            enemy.Aktelet=enemy.Aktelet - lajos.fegyvere.Maxseb;
-            Eaktelet.Content = enemy.Aktelet;
-            lajos.Aktelet = lajos.Aktelet - enemy.Tamad;
-            paktelet.Content = lajos.Aktelet;
+           /* if (enemy.Aktelet >0) {
+                enemy.Aktelet = enemy.Aktelet - lajos.fegyvere.Maxseb;
+                Eaktelet.Content = enemy.Aktelet;
+                lajos.Aktelet = lajos.Aktelet - enemy.Tamad;
+                paktelet.Content = lajos.Aktelet;
+            }
+            else
+            {
+                Harcg.Content = enemy.Aktelet;
+            }*/
+        }
+
+        private void futasg_Click(object sender, RoutedEventArgs e)
+        {
+            //pusztul az enemy egy destructorral...majd a járörrel ujra meghívódik
+            futasg.Visibility = Visibility.Hidden;
+            Harcg.Visibility = Visibility.Hidden;
+            
+
         }
     }
 }

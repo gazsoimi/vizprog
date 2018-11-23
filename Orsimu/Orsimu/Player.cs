@@ -9,7 +9,8 @@ namespace Orsimu
    public class Player : Leny
     {
         int penz;
-       public Fegyver fegyvere;
+        //public Fegyver fegyvere;
+        //public virtual List<Fegyver> Fegyvere { get; set; }
 
         public int Penz
         {

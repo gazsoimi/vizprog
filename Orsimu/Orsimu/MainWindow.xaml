@@ -11,6 +11,7 @@
         <Grid x:Name="kozep" HorizontalAlignment="Center" Background="LightCyan" Width="300">
             <Button x:Name="Jarorb" Content="Járörözés" Width="100" Height="40" Margin="0,340,0,0" Click="Jarorb_Click"></Button>
             <Button x:Name="Harcg" Content="Harc" Width="100" Height="40" Margin="0,340,100,0" Visibility="Hidden" Click="Harcg_Click"></Button>
+            <Button x:Name="futasg" Content="Menekülés" Width="100" Height="40" Margin="100,340,0,0" Visibility="Hidden" Click="futasg_Click"></Button>
         </Grid>
         
         <Grid x:Name="bal" HorizontalAlignment="Left" Background="Aqua" Width="250">

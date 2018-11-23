@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Orsimu
+namespace Ejszakaiorseg
 {
     /// <summary>
     /// Interaction logic for App.xaml

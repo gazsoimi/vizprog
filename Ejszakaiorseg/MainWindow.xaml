@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <WrapPanel x:Name="Adatok">
+            <Label x:Name="Nev" Width="100" Height="30" BorderBrush="Black" BorderThickness="1"></Label>
+            <Label x:Name="Id" Width="100" Height="30"></Label>
+            <Label x:Name="Elet" Width="100" Height="30"></Label>
+            <Label x:Name="Tamadas" Width="100" Height="30"></Label>
+            <Label x:Name="Vedes" Width="100" Height="30"></Label>
+        </WrapPanel>
     </Grid>
 </Window>

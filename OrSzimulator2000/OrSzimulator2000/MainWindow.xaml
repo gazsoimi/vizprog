@@ -9,15 +9,15 @@
 
   
 
-    <Grid>
+    <Grid Width="800">
         <TextBox HorizontalAlignment="Left" Name="felhasznalonev" Height="22" Margin="336,115,0,0" TextWrapping="Wrap" Text="Felhasználónév" VerticalAlignment="Top" Width="120"/>
         <PasswordBox HorizontalAlignment="Left" Name="jelszo" Margin="336,186,0,0" VerticalAlignment="Top" Width="120" />
-       
-            <Button Content="Belépés" Height="26" Width="57" Click="Belepes" Margin="403,259,332,134"/>
-        
-        <TextBlock  HorizontalAlignment="Left" Margin="404,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Name="LoginHibauzenet" Foreground="Red"/>
+
+
+        <TextBlock  HorizontalAlignment="Left" Margin="378,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"  Name="LoginHibauzenet" Foreground="Red"/>
         <Button Content="Regisztráció" HorizontalAlignment="Left" Margin="313,263,0,0" VerticalAlignment="Top" Width="75" Click="reg"/>
 
+        <Button Content="Belépés" Height="20"   Click="Belepes" HorizontalAlignment="Left" Margin="404,263,0,0" VerticalAlignment="Top" Width="75" />
     </Grid>
     
     

@@ -48,8 +48,7 @@ namespace OrSzimulator2000
             {
 
                 var Felhasznalo =adat.Felhasznalok.FirstOrDefault(F => F.Felhasznalonev == FelhasznaloNev);
-
-
+                
                 if (Felhasznalo != null)
                 {
                     if (Felhasznalo.Jelszo == Jelszo)
@@ -75,7 +74,57 @@ namespace OrSzimulator2000
 
         }
 
+        private void reg(object sender, RoutedEventArgs e)
+        {
 
+            using (AdatbazisEntities adat = new AdatbazisEntities())
+            {
+
+
+
+
+
+                var Felhasznalo = adat.Felhasznalok.FirstOrDefault(F => F.Felhasznalonev == felhasznalonev.Text);
+
+                if (Felhasznalo == null)
+                {
+
+
+                    if (String.IsNullOrEmpty(felhasznalonev.Text) || String.IsNullOrEmpty(jelszo.Password.ToString())) {
+                       
+                        LoginHibauzenet.Text = "Kérem töltse ki a felhasználónév és jelszó mezőket!";
+                    }else { 
+
+
+
+                    var UjFelhasznalo = new Felhasznalok();
+
+                    UjFelhasznalo.Felhasznalonev = felhasznalonev.Text;
+                    UjFelhasznalo.Jelszo = jelszo.Password.ToString();
+
+
+                    adat.Felhasznalok.Add(UjFelhasznalo);
+                    adat.SaveChanges();
+                    LoginHibauzenet.Text = "Regisztráció kész";
+                    }
+
+                }
+                else
+                {
+                    LoginHibauzenet.Text = "Már létezik ez a felhasználó";
+                }
+
+
+
+
+              
+
+
+
+
+
+            }
 
         }
+    }
 }

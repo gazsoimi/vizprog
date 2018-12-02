@@ -90,6 +90,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Felhasznalok1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Felhasznalok.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Karakterek.cs">
+      <DependentUpon>Felhasznalok.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lakhely.cs">
+      <DependentUpon>Felhasznalok.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Szornyek.cs">
+      <DependentUpon>Felhasznalok.tt</DependentUpon>
+    </Compile>
     <Compile Include="Valto.cs" />
     <Compile Include="Felhasznalok.Context.cs">
       <AutoGen>True</AutoGen>
@@ -150,11 +164,16 @@
     <Content Include="Adatbazis.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Adatbazis_log.ldf">
+      <DependentUpon>Adatbazis.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Felhasznalok.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Felhasznalok.Context.cs</LastGenOutput>
       <DependentUpon>Felhasznalok.edmx</DependentUpon>
     </Content>
+    <Content Include="Felhasznalok.edmx.sql" />
     <Content Include="Felhasznalok.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Felhasznalok.edmx</DependentUpon>

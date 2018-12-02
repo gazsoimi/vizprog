@@ -6,6 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="de6f9c8a2448439c9fcb4d480afba7ab" Name="Diagram1">
         <EntityTypeShape EntityType="AdatbazisModel.Felhasznalok" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdatbazisModel.Karakterek" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AdatbazisModel.Lakhely" Width="1.5" PointX="8.625" PointY="4.25" />
+        <EntityTypeShape EntityType="AdatbazisModel.Szornyek" Width="1.5" PointX="5.25" PointY="3.25" />
+        <AssociationConnector Association="AdatbazisModel.SzornyekLakhely" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

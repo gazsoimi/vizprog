@@ -26,5 +26,8 @@ namespace OrSzimulator2000
         }
     
         public virtual DbSet<Felhasznalok> Felhasznalok { get; set; }
+        public virtual DbSet<Karakterek> Karakterek { get; set; }
+        public virtual DbSet<Lakhely> Lakhely { get; set; }
+        public virtual DbSet<Szornyek> Szornyek { get; set; }
     }
 }

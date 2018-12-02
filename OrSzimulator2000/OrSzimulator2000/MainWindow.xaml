@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrSzimulator2000"
         mc:Ignorable="d"
-        Title="Belépés" Height="201.5" Width="148">
+        Title="Belépés" Height="450" Width="800">
 
   
 
     <Grid>
-        <TextBox HorizontalAlignment="Left" Name="felhasznalonev" Height="22" Margin="10,19,0,0" TextWrapping="Wrap" Text="Felhasználónév" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox HorizontalAlignment="Left" Name="jelszo" Margin="10,51,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button HorizontalAlignment="Left" Margin="27,130,0,0" VerticalAlignment="Top" Width="90" Height="33">
-            <Button Content="Belépés" Height="26" Width="57" Click="Belepes"/>
-        </Button>
-        <TextBlock  HorizontalAlignment="Left" Margin="44,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Name="LoginHibauzenet" Foreground="Red"/>
+        <TextBox HorizontalAlignment="Left" Name="felhasznalonev" Height="22" Margin="336,115,0,0" TextWrapping="Wrap" Text="Felhasználónév" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox HorizontalAlignment="Left" Name="jelszo" Margin="336,186,0,0" VerticalAlignment="Top" Width="120" />
+       
+            <Button Content="Belépés" Height="26" Width="57" Click="Belepes" Margin="403,259,332,134"/>
+        
+        <TextBlock  HorizontalAlignment="Left" Margin="404,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Name="LoginHibauzenet" Foreground="Red"/>
+        <Button Content="Regisztráció" HorizontalAlignment="Left" Margin="313,263,0,0" VerticalAlignment="Top" Width="75" Click="reg"/>
 
     </Grid>
     

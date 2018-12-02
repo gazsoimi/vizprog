@@ -4,19 +4,63 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AdatbazisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Felhasznalok">
-          <Key>
-            <PropertyRef Name="Felhasznalonev" />
-          </Key>
-          <Property Name="Felhasznalonev" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Jelszo" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityContainer Name="AdatbazisModelStoreContainer">
-          <EntitySet Name="Felhasznalok" EntityType="Self.Felhasznalok" Schema="dbo" store:Type="Tables" />
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="AdatbazisModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AdatbazisModelStoreContainer">
+    <EntitySet Name="Felhasznalok" EntityType="AdatbazisModel.Store.Felhasznalok" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Karakterek" EntityType="AdatbazisModel.Store.Karakterek" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lakhely" EntityType="AdatbazisModel.Store.Lakhely" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Szornyek" EntityType="AdatbazisModel.Store.Szornyek" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SzornyekLakhely" Association="AdatbazisModel.Store.SzornyekLakhely">
+      <End Role="Szornyek" EntitySet="Szornyek" />
+      <End Role="Lakhely" EntitySet="Lakhely" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Felhasznalok">
+    <Key>
+      <PropertyRef Name="Felhasznalonev" />
+    </Key>
+    <Property Name="Felhasznalonev" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Jelszo" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Karakterek">
+    <Key>
+      <PropertyRef Name="KarakterId" />
+    </Key>
+    <Property Name="KarakterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tamadas" Type="int" Nullable="false" />
+    <Property Name="Vedes" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lakhely">
+    <Key>
+      <PropertyRef Name="LakhelyId" />
+    </Key>
+    <Property Name="LakhelyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nev" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Szornyek">
+    <Key>
+      <PropertyRef Name="SzornyId" />
+    </Key>
+    <Property Name="SzornyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Lakhelyfk" Type="int" Nullable="false" />
+    <Property Name="Tamadas" Type="int" Nullable="false" />
+    <Property Name="Vedes" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="SzornyekLakhely">
+    <End Role="Szornyek" Type="AdatbazisModel.Store.Szornyek" Multiplicity="1" />
+    <End Role="Lakhely" Type="AdatbazisModel.Store.Lakhely" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Szornyek">
+        <PropertyRef Name="SzornyId" />
+      </Principal>
+      <Dependent Role="Lakhely">
+        <PropertyRef Name="LakhelyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AdatbazisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -29,24 +73,99 @@
         </EntityType>
         <EntityContainer Name="AdatbazisEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Felhasznalok" EntityType="Self.Felhasznalok" />
+          <EntitySet Name="Karakterek" EntityType="AdatbazisModel.Karakterek" />
+          <EntitySet Name="Lakhely" EntityType="AdatbazisModel.Lakhely" />
+          <EntitySet Name="Szornyek" EntityType="AdatbazisModel.Szornyek" />
+          <AssociationSet Name="SzornyekLakhely" Association="AdatbazisModel.SzornyekLakhely">
+            <End Role="Szornyek" EntitySet="Szornyek" />
+            <End Role="Lakhely" EntitySet="Lakhely" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Karakterek">
+          <Key>
+            <PropertyRef Name="KarakterId" />
+          </Key>
+          <Property Name="KarakterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nev" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tamadas" Type="Int32" Nullable="false" />
+          <Property Name="Vedes" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lakhely">
+          <Key>
+            <PropertyRef Name="LakhelyId" />
+          </Key>
+          <Property Name="LakhelyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nev" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Szornyek" Relationship="AdatbazisModel.SzornyekLakhely" FromRole="Lakhely" ToRole="Szornyek" />
+        </EntityType>
+        <EntityType Name="Szornyek">
+          <Key>
+            <PropertyRef Name="SzornyId" />
+          </Key>
+          <Property Name="SzornyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nev" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Lakhelyfk" Type="Int32" Nullable="false" />
+          <Property Name="Tamadas" Type="Int32" Nullable="false" />
+          <Property Name="Vedes" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Lakhely" Relationship="AdatbazisModel.SzornyekLakhely" FromRole="Szornyek" ToRole="Lakhely" />
+        </EntityType>
+        <Association Name="SzornyekLakhely">
+          <End Type="AdatbazisModel.Szornyek" Role="Szornyek" Multiplicity="1" />
+          <End Type="AdatbazisModel.Lakhely" Role="Lakhely" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Szornyek">
+              <PropertyRef Name="SzornyId" />
+            </Principal>
+            <Dependent Role="Lakhely">
+              <PropertyRef Name="LakhelyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AdatbazisModelStoreContainer" CdmEntityContainer="AdatbazisEntities">
-          <EntitySetMapping Name="Felhasznalok">
-            <EntityTypeMapping TypeName="AdatbazisModel.Felhasznalok">
-              <MappingFragment StoreEntitySet="Felhasznalok">
-                <ScalarProperty Name="Felhasznalonev" ColumnName="Felhasznalonev" />
-                <ScalarProperty Name="Jelszo" ColumnName="Jelszo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdatbazisModelStoreContainer" CdmEntityContainer="AdatbazisEntities">
+    <EntitySetMapping Name="Felhasznalok">
+      <EntityTypeMapping TypeName="IsTypeOf(AdatbazisModel.Felhasznalok)">
+        <MappingFragment StoreEntitySet="Felhasznalok">
+          <ScalarProperty Name="Felhasznalonev" ColumnName="Felhasznalonev" />
+          <ScalarProperty Name="Jelszo" ColumnName="Jelszo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Karakterek">
+      <EntityTypeMapping TypeName="IsTypeOf(AdatbazisModel.Karakterek)">
+        <MappingFragment StoreEntitySet="Karakterek">
+          <ScalarProperty Name="KarakterId" ColumnName="KarakterId" />
+          <ScalarProperty Name="Nev" ColumnName="Nev" />
+          <ScalarProperty Name="Tamadas" ColumnName="Tamadas" />
+          <ScalarProperty Name="Vedes" ColumnName="Vedes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lakhely">
+      <EntityTypeMapping TypeName="IsTypeOf(AdatbazisModel.Lakhely)">
+        <MappingFragment StoreEntitySet="Lakhely">
+          <ScalarProperty Name="LakhelyId" ColumnName="LakhelyId" />
+          <ScalarProperty Name="Nev" ColumnName="Nev" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Szornyek">
+      <EntityTypeMapping TypeName="IsTypeOf(AdatbazisModel.Szornyek)">
+        <MappingFragment StoreEntitySet="Szornyek">
+          <ScalarProperty Name="SzornyId" ColumnName="SzornyId" />
+          <ScalarProperty Name="Nev" ColumnName="Nev" />
+          <ScalarProperty Name="Lakhelyfk" ColumnName="Lakhelyfk" />
+          <ScalarProperty Name="Tamadas" ColumnName="Tamadas" />
+          <ScalarProperty Name="Vedes" ColumnName="Vedes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -60,7 +179,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
